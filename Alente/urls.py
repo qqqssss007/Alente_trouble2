@@ -36,4 +36,7 @@ urlpatterns = [
 urlpatterns += [
     path('api/swagger/', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path("api/", include("modules.conference.urls")),
+    path("api/", include("modules.conference_responce.urls")),
+    path("api/", include("modules.vacancy.urls")),
+    path("api/", include("modules.vacancy_responce.urls")),
 ]
