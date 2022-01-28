@@ -13,4 +13,4 @@ class VacancyResponce(models.Model):
     #     myUser,
     #     on_delete=models.CASCADE
     # )
-    resume_file = models.FileField()
+   # resume_file = models.FileField()

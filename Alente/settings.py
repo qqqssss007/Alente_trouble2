@@ -41,11 +41,15 @@ INSTALLED_APPS = [
     'rest_framework',
     'drf_yasg',
     'django_filters',
+    'rest_framework.authtoken',
+
 
     'modules.conference',
     'modules.vacancy',
     'modules.conference_responce',
     'modules.vacancy_responce',
+    'modules.Users',
+
 ]
 
 MIDDLEWARE = [
@@ -127,3 +131,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
