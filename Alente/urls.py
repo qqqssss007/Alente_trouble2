@@ -18,7 +18,6 @@ from django.urls import path, include
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from rest_framework import permissions
-from modules.Users import views
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -40,5 +39,5 @@ urlpatterns += [
     path("api/", include("modules.conference_responce.urls")),
     path("api/", include("modules.vacancy.urls")),
     path("api/", include("modules.vacancy_responce.urls")),
-    path('api/', include('Users.urls'), name='users'),
+    path("api/", include("modules.accounts.urls")),
 ]
