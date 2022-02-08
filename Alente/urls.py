@@ -39,5 +39,4 @@ urlpatterns += [
     path("api/", include("modules.conference_responce.urls")),
     path("api/", include("modules.vacancy.urls")),
     path("api/", include("modules.vacancy_responce.urls")),
-    path("api/", include("modules.accounts.urls")),
 ]

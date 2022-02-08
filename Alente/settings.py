@@ -9,12 +9,11 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -26,7 +25,6 @@ SECRET_KEY = '*0il)dii&x(995na%-!!4$utowfi3e%izpd%!ana%(yf)w04_f'
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -42,24 +40,21 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework.authtoken',
 
-
     'modules.conference',
     'modules.vacancy',
     'modules.conference_responce',
     'modules.vacancy_responce',
-    'authemail',
-	'modules.accounts',
+    'modules.user'
 
 ]
 
+AUTH_USER_MODEL = "user.User"
+
 REST_FRAMEWORK = {
-	'DEFAULT_AUTHENTICATION_CLASSES': (
-		'rest_framework.authentication.TokenAuthentication',
-	)
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
 }
-
-AUTH_USER_MODEL = 'modules.accounts.models',
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -91,21 +86,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'Alente.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'Alente',
-        'USER': 'admin',
-        'PASSWORD': '123',
-        'HOST': '127.0.0.1',
-        'PORT': '65432',
+        'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'sqlite3.db',                      # Or path to database file if using sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -125,7 +118,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -139,10 +131,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-
